@@ -50,7 +50,7 @@ const colourStyles = {
 
 const SelectComponent = (props) => (
   <Select
-    isClearable={props.isClearable}
+    isClearable={false}
     styles={{ ...colourStyles }}
     {...props}
   />
@@ -60,7 +60,7 @@ SelectComponent.propsTypes = {
   isClearable: bool,
 };
 SelectComponent.defaultProps = {
-  isClearable: true,
+  isClearable: false,
 };
 
 export default SelectComponent;

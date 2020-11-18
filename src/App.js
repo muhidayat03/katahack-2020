@@ -8,6 +8,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Partner from './pages/partner/Partner';
 import Category from './pages/category/Category';
 import Invoice from './pages/invoice/Invoice';
+import InvoiceDetail from './pages/invoice/InvoiceDetail';
 import Product from './pages/product/Product';
 import NotFound from './components/NotFound';
 
@@ -19,7 +20,7 @@ const Layout = ({ isopen, setOpen }) =>
     <Header >
       <div>
         <a href="#">
-          <Logo    />
+          <Logo />
         </a>
       </div>
 
@@ -59,10 +60,12 @@ const Layout = ({ isopen, setOpen }) =>
     </BurgerWrapper>
     <Overlay open={isopen} onClick={() => setOpen(false)} />
     <Switch>
-      <PrivateRoute path="/partner" component={Partner} />
-      <PrivateRoute path="/product" component={Product} />
-      <PrivateRoute path="/category" component={Category} />
-      <PrivateRoute path="/invoice" component={Invoice} />
+      <PrivateRoute path="/partner" exact component={Partner} />
+      <PrivateRoute path="/product" exact component={Product} />
+      <PrivateRoute path="/category" exact component={Category} />
+      <PrivateRoute path="/invoice" exact component={Invoice} />
+      <PrivateRoute path="/invoice/:id" exact component={InvoiceDetail} />
+      <PrivateRoute path="/invoice-detail" exact component={InvoiceDetail} />
       <PrivateRoute path="/" exact component={() => <div>Dashboard</div>} />
       <PrivateRoute component={NotFound} />
     </Switch>
@@ -114,6 +117,7 @@ const LayoutRoot = styled.div`
 
 const Sidebar = styled.div` 
   width: 192px;
+  position: absolute;
   height: calc(100vh - 64px); 
   padding: 24px 16px;
   z-index: 2;
@@ -121,14 +125,14 @@ const Sidebar = styled.div`
   border-right: 1px solid rgb(226, 230, 232);
   background-color: rgb(255, 255, 255);
   transition: transform 0.3s ease 0s;
-
- 
-  @media(max-width:1023px){
-    position: fixed;
-    top: 0px;
+  position: fixed;
+    top: 64px;
     left: 0px;
     bottom: 0px;
-    right: 0px;     
+    right: 0px;   
+
+ 
+  @media(max-width:1023px){  
     transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
     transition: transform 0.3s ease 0s;
     z-index: 999;

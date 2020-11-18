@@ -5,6 +5,9 @@ import {
   ADD_INVOICE_PENDING,
   ADD_INVOICE_SUCCESS,
   ADD_INVOICE_ERROR,
+  DETAIL_INVOICE_PENDING,
+  DETAIL_INVOICE_SUCCESS,
+  DETAIL_INVOICE_ERROR,
 } from "../actions/invoice_action";
 
 const initialState = {
@@ -36,6 +39,7 @@ export function listInvoice(state = { ...initialState, data: null }, action) {
       return state;
   }
 }
+
 export function addInvoice(state = { ...initialState, data: null }, action) {
   switch (action.type) {
     case ADD_INVOICE_PENDING:
@@ -51,6 +55,30 @@ export function addInvoice(state = { ...initialState, data: null }, action) {
         data: action.data,
       };
     case ADD_INVOICE_ERROR:
+      return {
+        ...state,
+        pending: false,
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+}
+
+export function detailInvoice(state = { ...initialState, data: null }, action) {
+  switch (action.type) {
+    case DETAIL_INVOICE_PENDING:
+      return {
+        ...state,
+        pending: true,
+      };
+    case DETAIL_INVOICE_SUCCESS: 
+      return {
+        ...state,
+        pending: false,
+        data: action.data,
+      };
+    case DETAIL_INVOICE_ERROR:
       return {
         ...state,
         pending: false,

@@ -105,7 +105,7 @@ let ProductModalAdd = (props) => {
             />
             <Field
               name="harga_jual"
-              placeholder="Harga Jualp"
+              placeholder="Harga Jual"
               type='number'
 
               component={renderInput}

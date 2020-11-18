@@ -17,8 +17,9 @@ const RenderArray = ({ fields }) => {
       value: harga_jual,
       deskripsi: deskripsi,
     }));
-  }
+  } 
 
+  
   return <>{
     fields.map((product, index) => (
       <div

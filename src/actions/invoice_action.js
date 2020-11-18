@@ -7,10 +7,14 @@ export const LIST_INVOICE_ERROR = "LIST_INVOICE_ERROR";
 export const ADD_INVOICE_PENDING = "ADD_INVOICE_PENDING";
 export const ADD_INVOICE_SUCCESS = "ADD_INVOICE_SUCCESS";
 export const ADD_INVOICE_ERROR = "ADD_INVOICE_ERROR";
+export const DETAIL_INVOICE_PENDING = "DETAIL_INVOICE_PENDING";
+export const DETAIL_INVOICE_SUCCESS = "DETAIL_INVOICE_SUCCESS";
+export const DETAIL_INVOICE_ERROR = "DETAIL_INVOICE_ERROR";
 
 
 const LIST_INVOICE_URL = "invoice";
 const ADD_INVOICE_URL = "invoice";
+const DETAIL_INVOICE_URL = "invoice/detail";
 
 export function listInvoice(page) {
   console.log('asdfasdfasdfsdf')
@@ -26,8 +30,24 @@ export function listInvoice(page) {
     }
   };
 }
-export function addInvoice(param, data) {
 
+
+export function detailInvoice(id) {
+  return async (dispatch) => {
+    dispatch(actionPending(DETAIL_INVOICE_PENDING));
+    try {
+      const response = await API.get(`${DETAIL_INVOICE_URL}?id=${id}`);
+      dispatch(actionSuccess(DETAIL_INVOICE_SUCCESS, response.data));
+      return response;
+    } catch (error) {
+      dispatch(actionError(DETAIL_INVOICE_ERROR, error));
+      throw error;
+    }
+  };
+}
+
+
+export function addInvoice(param, data) {
   return async (dispatch) => {
     dispatch(actionPending(ADD_INVOICE_PENDING));
     try {

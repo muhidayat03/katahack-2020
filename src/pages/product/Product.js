@@ -5,7 +5,7 @@ import { listProduct } from '../../actions/product_action';
 import { Button } from '@aksara-ui/core';
 import ProductModalAdd from './ProductModalAdd';
 import Loader from '../../components/Loader';
-import { IconPen, IconTrash } from '@aksara-ui/icons';
+import { IconPen, IconTrash, IconPages } from '@aksara-ui/icons';
 
 
 
@@ -14,6 +14,8 @@ import { Pagination } from '@aksara-ui/core';
 import Empty from '../../components/Empty';
 import { listCategory } from '../../actions/category_action';
 import { listPartner } from '../../actions/partner_action';
+import { Main, ContentConteiner, Title, PaginationContainer, ButtonContaienr } from '../../components/Layout';
+
 
 
 const Product = () => {
@@ -32,9 +34,6 @@ const Product = () => {
     dispatch(listPartner(1));
   }, [dispatch]);
 
-  if (pending) {
-    return <Loader />
-  }
 
   const getProduct = async (page) => {
     const data = await dispatch(listProduct(page));
@@ -55,7 +54,9 @@ const Product = () => {
       <td>{item.jml_stok}</td>
       <td style={{ textAlign: 'center' }}>
         <IconPen size={16} style={{ marginRight: 10 }} />
-        <IconTrash size={16} />
+        <IconTrash size={16} style={{ marginRight: 10 }} />
+        <IconPages size={16} />
+
       </td>
     </tr>)
   } else {
@@ -64,24 +65,25 @@ const Product = () => {
     </td>
   }
 
+
+  if (pending) {
+    return <Main>
+      <ContentConteiner>
+        <Loader />
+      </ContentConteiner>
+    </Main>
+  }
   return <Main>
     <ContentConteiner>
       <ProductModalAdd isOpen={isOpen} onClose={() => setIsOpen(false)}></ProductModalAdd>
-
-
-
-
       <ButtonContaienr>
         <Title>Product</Title>
-
         <Button variant="primary" onClick={() => setIsOpen(true)}>
           Tambah Product
           </Button>
       </ButtonContaienr>
       <div className="table-wrapper">
-
         <div>
-
           <table className="kata-table">
             <thead>
               <tr style={{ botderTop: "2px solid red" }}>
@@ -109,58 +111,6 @@ const Product = () => {
 
 
 
-
-
-const Main = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  // position: relative;
-  padding: 40px;
-  background-color: rgb(246, 247, 248);
-  transition: transform 0.3s ease 0s;
-`;
-
-
-
-const ContentConteiner = styled.div`
-  width: 100%;
-  height: 200px;
-  margin: 0 auto;
-  // background-color: red;
-  @media (min-width: 1280px) {
-    max-width: 920px;
-  }
-  @media (min-width: 1366px) {
-    max-width: 990px;
-  }
-  @media (min-width: 1440px) {
-    max-width: 1160px;
-  }
-`;
-
-const Title = styled.h1`
-  font-size: 1.75rem; 
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: #2B2F33;
-  line-height: 1.125em; 
-`;
-
-const PaginationContainer = styled.div`
-  display: flex;
-  width: 100%; 
-  justify-content: center;
-  margin-top: 20px;
-`;
-
-const ButtonContaienr = styled.div`
-  display: flex;
-  width: 100%; 
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-`;
 
 export default Product;
 

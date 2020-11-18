@@ -21,7 +21,7 @@ let InvoiceModalAdd = (props) => {
 
   console.log('AAAa', props.product)
   const tryAddInvoice = async (param, data) => {
-    const test = await dispatch(addInvoice(param,data));
+    const test = await dispatch(addInvoice(param, data));
     if (test) {
       onClose();
       await dispatch(listInvoice(1));
@@ -138,8 +138,10 @@ let InvoiceModalAdd = (props) => {
           </div>
         </DialogContent>
         <DialogFooter>
-          total : {total}
-          <Box display="flex" flexDirection="row-reverse">
+          <Box display="flex" justifyContent="space-between" alignItems="center">
+            <div>
+              Total : {total}
+            </div>
             <Button variant='primary' type='submit'>Simpan</Button>
           </Box>
         </DialogFooter>
