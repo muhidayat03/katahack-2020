@@ -1,0 +1,526 @@
+ 
+ 
+ 
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.kata-table{
+  width: 100%;
+  border-spacing: 2px;
+  border-color: grey; 
+  border-collapse: collapse;
+
+  /* table-layout:fixed; */
+ 
+}
+.kata-table thead {
+  border-bottom: 2px solid red;
+  background: #fff;
+}
+.kata-table thead th:first-child {
+  border-top-left-radius: 8px;
+}
+.kata-table thead th {
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #24282d; 
+  border-bottom: 2px solid #e2e6e8;
+  text-align: center;
+}
+.kata-table tbody tr:last-child {
+  border-bottom: none;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.05);
+}
+.kata-table tbody tr {
+  border-bottom: 1px solid #e2e6e8;
+}
+.kata-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+.kata-table tbody tr td {
+  background: #fff;
+  padding: 14px 16px;
+  vertical-align: middle;
+  color: #484c4f;
+  font-size: 12px; 
+  border: none;
+  text-align: center;
+}
+
+.table-wrapper{
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.25);
+  overflow-x: auto;
+  width: 100%;
+  display: block;
+}
+ 
+
+@font-face {
+  font-family: 'kata';
+  src:  url(./kata.2bbf5dab.woff) format('woff');
+  /* src: url(static/media/kata.8c8ca626.eot); */
+    /* url(static/media/kata.2bbf5dab.woff) format('woff'),
+    url(static/media/kata.79c1025c.ttf) format('truetype'),
+    url(static/media/kata.5f531ea1.svg#kata) format('svg'); */
+  font-weight: normal;
+  font-style: normal;
+  font-display: auto;
+}
+
+
+[data-icon]:before {
+  font-family: 'kata' !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  font-display: auto;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^='icon-']:before,
+[class*=' icon-']:before {
+  font-family: 'kata' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  font-display: auto;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-account:before {
+  content: '\61';
+}
+
+.icon-account-type:before {
+  content: '\62';
+}
+
+.icon-add:before {
+  content: '\63';
+}
+
+.icon-add-bold:before {
+  content: '\64';
+}
+
+.icon-admin:before {
+  content: '\65';
+}
+
+.icon-analytics:before {
+  content: '\66';
+}
+
+.icon-api:before {
+  content: '\67';
+}
+
+.icon-arrow:before {
+  content: '\68';
+}
+
+.icon-arrow-down:before {
+  content: '\69';
+}
+
+.icon-arrow-left:before {
+  content: '\6a';
+}
+
+.icon-arrow-right:before {
+  content: '\6b';
+}
+
+.icon-audio:before {
+  content: '\6c';
+}
+
+.icon-bot:before {
+  content: '\6d';
+}
+
+.icon-building:before {
+  content: '\6e';
+}
+
+.icon-button:before {
+  content: '\6f';
+}
+
+.icon-carousel:before {
+  content: '\70';
+}
+
+.icon-close:before {
+  content: '\71';
+}
+
+.icon-cms:before {
+  content: '\72';
+}
+
+.icon-command:before {
+  content: '\73';
+}
+
+.icon-conversation:before {
+  content: '\74';
+}
+
+.icon-copy:before {
+  content: '\75';
+}
+
+.icon-dashboard:before {
+  content: '\76';
+}
+
+.icon-deployments:before {
+  content: '\77';
+}
+
+.icon-development:before {
+  content: '\78';
+}
+
+.icon-dictionary:before {
+  content: '\79';
+}
+
+.icon-docs:before {
+  content: '\7a';
+}
+
+.icon-faq:before {
+  content: '\41';
+}
+
+.icon-fallback:before {
+  content: '\42';
+}
+
+.icon-error-log:before {
+  content: '\43';
+}
+
+.icon-error:before {
+  content: '\44';
+}
+
+.icon-environments:before {
+  content: '\45';
+}
+
+.icon-entity:before {
+  content: '\46';
+}
+
+.icon-email:before {
+  content: '\47';
+}
+
+.icon-enabled-modules:before {
+  content: '\48';
+}
+
+.icon-edit:before {
+  content: '\49';
+}
+
+.icon-dynamic-carousel:before {
+  content: '\4a';
+}
+
+.icon-dropdown:before {
+  content: '\4b';
+}
+
+.icon-drag:before {
+  content: '\4c';
+}
+
+.icon-download:before {
+  content: '\4d';
+}
+
+.icon-forms:before {
+  content: '\4e';
+}
+
+.icon-image-map:before {
+  content: '\4f';
+}
+
+.icon-image:before {
+  content: '\50';
+}
+
+.icon-img-uploader:before {
+  content: '\51';
+}
+
+.icon-info:before {
+  content: '\52';
+}
+
+.icon-invoice:before {
+  content: '\53';
+}
+
+.icon-location:before {
+  content: '\54';
+}
+
+.icon-location-cms:before {
+  content: '\55';
+}
+
+.icon-locator:before {
+  content: '\56';
+}
+
+.icon-log:before {
+  content: '\57';
+}
+
+.icon-method:before {
+  content: '\58';
+}
+
+.icon-methods:before {
+  content: '\59';
+}
+
+.icon-modules:before {
+  content: '\5a';
+}
+
+.icon-refresh:before {
+  content: '\30';
+}
+
+.icon-production:before {
+  content: '\31';
+}
+
+.icon-product:before {
+  content: '\32';
+}
+
+.icon-pricing:before {
+  content: '\33';
+}
+
+.icon-phrase:before {
+  content: '\34';
+}
+
+.icon-password:before {
+  content: '\35';
+}
+
+.icon-pages:before {
+  content: '\36';
+}
+
+.icon-overview:before {
+  content: '\37';
+}
+
+.icon-overal-analytic:before {
+  content: '\38';
+}
+
+.icon-ok:before {
+  content: '\39';
+}
+
+.icon-nlus:before {
+  content: '\21';
+}
+
+.icon-nlu:before {
+  content: '\22';
+}
+
+.icon-more:before {
+  content: '\23';
+}
+
+.icon-remove:before {
+  content: '\24';
+}
+
+.icon-remove-tag:before {
+  content: '\25';
+}
+
+.icon-rollback:before {
+  content: '\26';
+}
+
+.icon-save:before {
+  content: '\27';
+}
+
+.icon-schedule:before {
+  content: '\28';
+}
+
+.icon-settings:before {
+  content: '\29';
+}
+
+.icon-settings-cms:before {
+  content: '\2a';
+}
+
+.icon-slider:before {
+  content: '\2b';
+}
+
+.icon-staging:before {
+  content: '\2c';
+}
+
+.icon-sticker:before {
+  content: '\2d';
+}
+
+.icon-subscription:before {
+  content: '\2e';
+}
+
+.icon-success:before {
+  content: '\2f';
+}
+
+.icon-tapescript:before {
+  content: '\3a';
+}
+
+.icon-test-chatbot:before {
+  content: '\3b';
+}
+
+.icon-test-nlu:before {
+  content: '\3c';
+}
+
+.icon-text:before {
+  content: '\3d';
+}
+
+.icon-text-data:before {
+  content: '\3e';
+}
+
+.icon-textarea:before {
+  content: '\3f';
+}
+
+.icon-textbox:before {
+  content: '\40';
+}
+
+.icon-textlist:before {
+  content: '\5b';
+}
+
+.icon-tick:before {
+  content: '\5d';
+}
+
+.icon-toggle:before {
+  content: '\5e';
+}
+
+.icon-train:before {
+  content: '\5f';
+}
+
+.icon-trait:before {
+  content: '\60';
+}
+
+.icon-trash:before {
+  content: '\7b';
+}
+
+.icon-training:before {
+  content: '\7c';
+}
+
+.icon-warning:before {
+  content: '\7d';
+}
+
+.icon-view:before {
+  content: '\7e';
+}
+
+.icon-videos:before {
+  content: '\5c';
+}
+
+.icon-video:before {
+  content: '\e000';
+}
+
+.icon-version-lists:before {
+  content: '\e001';
+}
+
+.icon-users:before {
+  content: '\e002';
+}
+
+.icon-usage:before {
+  content: '\e003';
+}
+
+.icon-update:before {
+  content: '\e004';
+}
+
+.selected>div{
+  background-color: red;
+  background-color: rgb(246, 247, 248);
+}
+
+.the-overlay {
+  position: absolute;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  top: 0;
+  z-index: 40;
+}
+ 
